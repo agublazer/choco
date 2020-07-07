@@ -1426,7 +1426,7 @@ svg.pulse-svg .third-circle {
 
 <div id="content"><div class="row title-row">
     <div class="col-xs-12">
-        <h1 class="page-title">QuantumFX Pro – 1 Mes</h1>
+        <h1 class="page-title">QuantumFX Pro – Registro</h1>
             </div>
 </div>
 <div class="row between-lg">
@@ -1435,19 +1435,14 @@ svg.pulse-svg .third-circle {
         
 
 <div class="mp_wrapper">
-  <form class="mepr-signup-form mepr-form" method="post" action="/register/falconfx-pro-monthly/#mepr_jump" novalidate="">
+  <form class="mepr-signup-form mepr-form" method="post" action="" novalidate="">
+  	{% if registered == 'exists'%}
+  	<p>Ya existe un usuario con ese email</p>
+  	{% endif %}
+  	{% csrf_token %}
     <input type="hidden" name="mepr_process_signup_form" value="1">
     <input type="hidden" name="mepr_product_id" value="45">
     <input type="hidden" name="mepr_transaction_id" value="">
-
-    
-          <div class="mp-form-row mepr_bold mepr_price">
-                <div class="mepr_price_cell_label">Terms:</div>
-        <div class="mepr_price_cell">
-          £97 por un mes, luego debes renovar tu suscripción</div>
-      </div>
-    
-    
           <div class="mp-form-row mepr_first_name">
         <div class="mp-form-label">
           <label for="user_first_name1">Nombres:*</label>
@@ -1722,6 +1717,18 @@ svg.pulse-svg .third-circle {
                   <option value="YE">Yemen</option>
                   <option value="ZM">Zambia</option>
                   <option value="ZW">Zimbabwe</option>
+            </select>
+    </div>
+
+<div class="mp-form-row mepr_custom_field mepr_mepr-address-country">
+      <div class="mp-form-label">
+      <label for="mepr-address-country1">Meses:*</label>
+      <span class="cc-error">Mes es obligatorio</span>
+    </div>
+        <select name="months" id="mepr-address-country1" class=" mepr-countries-dropdown mepr-form-input mepr-select-field" required="">
+      <option value="">-- Selecciona meses --</option>
+            <option value="1">1 mes (S./100.00)</option>
+            <option value="3">3 meses (S./250.00)</option>
             </select>
     </div>
             <div class="mp-form-row mepr_email">
