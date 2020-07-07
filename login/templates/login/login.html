@@ -1378,10 +1378,18 @@ svg.pulse-svg .third-circle {
         <div class="col-xs-12">
         
 <div class="mp_wrapper mp_login_form">
-          <!-- mp-login-form-start -->     <form name="mepr_loginform" id="mepr_loginform" class="mepr-form" action="https://falconfx.com/login/" method="post">
+  {%if status == 'non-existent'%}
+  <p>No existe un usuario con ese email</p>
+  {%endif%}
+  {%if status == 'wrong-pwd'%}
+  <p>Contraseña incorrecta</p>
+  {%endif%}
+          <!-- mp-login-form-start -->     <form name="mepr_loginform" id="mepr_loginform" class="
+          mepr-form" action="" method="post">
+          {% csrf_token %}
             <div class="mp-form-row mepr_username">
         <div class="mp-form-label">
-                              <label for="user_login">Nombre de usuario o E-mail</label>
+        <label for="user_login">E-mail</label>
                   </div>
         <input type="text" name="log" id="user_login" value="" placeholder="Su dirección de e-mail">
       </div>
