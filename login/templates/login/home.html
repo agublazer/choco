@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% if user.is_authenticated %}
+<p>Unete usando el siguiente link</p>
+{{user}}
+{{profile.fecha_inicio}}
+{{profile.fecha_fin}}
+<a href="http://localhost:8000/logout"> cerrar sesion</a>
+{% else %}
+<p>Por favor inicia sesion para ver esta página</p>
+{% endif %}
+</body>
+</html>
